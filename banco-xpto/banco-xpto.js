@@ -19,9 +19,9 @@ class Conta {
     saque(valor) {
         let depositoAtual = this.saldo - valor
         return depositoAtual > this.saldo ?
-            `${this.cliente} nao tem saldo suficiente`
+            this.saldo = `${this.cliente} nao tem saldo suficiente`
             : depositoAtual < 0 ?
-                `${this.cliente} nao tem saldo suficiente`
+                this.saldo = `${this.cliente} nao tem saldo suficiente`
                 : this.saldo = depositoAtual
     }
     transferencia(ClienteDatranferencia, clienteRecebeTranferencia, valorDeTranferencia) {
@@ -60,11 +60,17 @@ class ContaCorrente extends Conta {
         }
     }
 }
+const joaquim = new ContaPoupanca("Joaquim", "poupanca", 1234, 333)
+
 const cadastrandoCliente = (cliente) => {
     const clientesCadastrados = []
     clientesCadastrados.push(cliente)
     return clientesCadastrados
 }
+joaquim.deposito(30)
+console.log(joaquim)
+joaquim.saque(40)
+console.log(joaquim)
 module.exports = {
     Cliente,
     Conta,
