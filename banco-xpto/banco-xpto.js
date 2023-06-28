@@ -60,25 +60,11 @@ class ContaCorrente extends Conta {
         }
     }
 }
-const joaquim = new ContaPoupanca("Maria", "poupanca", 1234, 333)
-const maria = new ContaCorrente("Joaquim", "corrente", 1234, 333)
-
 const cadastrandoCliente = (cliente) => {
     const clientesCadastrados = []
     clientesCadastrados.push(cliente)
     return clientesCadastrados
 }
-
-cadastrandoCliente(maria)
-cadastrandoCliente(joaquim)
-
-maria.deposito(1000)
-console.log(maria)
-maria.saque(1000)
-console.log(maria)
-maria.deposito(800)
-console.log(maria)
-
 module.exports = {
     Cliente,
     Conta,
