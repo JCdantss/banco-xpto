@@ -2,7 +2,6 @@ const banco = require("./banco-xpto")
 const ContaCorrente = banco.ContaCorrente
 const ContaPoupanca = banco.ContaPoupanca
 const cadastrandoCliente = banco.cadastrandoCliente
-
 test("Deve fazer um deposito, efetuar um saque e retornar o saldo", () => {
     const maria = new ContaCorrente("Maria", "corrente", 1234, 333)
     cadastrandoCliente(maria)
@@ -47,4 +46,13 @@ test("Deve fazer um saque, e retornar que o cliente nao tem saldo suficiente", (
     joaquim.deposito(30)
     joaquim.saque(1031)
     expect(joaquim.saldo).toBe(joaquim.cliente + " " + "nao tem saldo suficiente")
+})
+test("Deve fazer uma transferencia, e retornar o resultado", () => {
+    const joaquim = new ContaCorrente("Joaquim", "poupanca", 1234, 333)
+    const maria = new ContaPoupanca("Maria", "corrente", 1234, 333)
+    cadastrandoCliente(joaquim)
+    cadastrandoCliente(maria)
+    maria.deposito(100)
+    maria.transferencia("Maria", "Joaquim", 60)
+    expect(joaquim.saldo).toBe(60)
 })
