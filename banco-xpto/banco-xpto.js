@@ -49,10 +49,10 @@ class ContaCorrente extends Conta {
                 this.saldo = 0
                 this.limiteDeCredito = this.limiteDeCredito < 0 ?
                     "limite excedido"
-                    : this.limiteDeCredito = 1000
+                    : this.limiteDeCredito = this.limiteDeCredito
                 break;
             case false:
-                this.saldo = this.saldo - valor
+                this.saldo = this.saldo
                 this.limiteDeCredito = 1000
                 break;
             default:
@@ -60,20 +60,21 @@ class ContaCorrente extends Conta {
         }
     }
 }
-// const maria = new ContaPoupanca("Maria", "poupanca", 1234, 333)
-// const joaquim = new ContaCorrente("Joaquim", "corrente", 1234, 333)
+const maria = new ContaPoupanca("Maria", "poupanca", 1234, 333)
+const joaquim = new ContaCorrente("Joaquim", "corrente", 1234, 333)
+
 const cadastrandoCliente = (cliente) => {
     const clientesCadastrados = []
     clientesCadastrados.push(cliente)
     return clientesCadastrados
 }
 
-// cadastrandoCliente(maria)
-// cadastrandoCliente(joaquim)
+cadastrandoCliente(maria)
+cadastrandoCliente(joaquim)
 
-// console.log(joaquim.deposito(800))
-// joaquim.saque(900)
-// console.log(joaquim)
+console.log(joaquim.deposito(1000))
+joaquim.saque(2010)
+console.log(joaquim)
 
 module.exports = {
     Cliente,
