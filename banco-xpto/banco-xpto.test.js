@@ -49,7 +49,7 @@ test("Deve fazer um saque, e retornar que o cliente nao tem saldo suficiente", (
 })
 test("Deve fazer uma transferencia, e retornar o resultado", () => {
     const joaquim = new ContaCorrente("Joaquim", "poupanca", 1234, 333)
-    const maria = new ContaPoupanca("Maria", "corrente", 1234, 333)
+    const maria = new ContaCorrente("Maria", "corrente", 1234, 333)
     cadastrandoCliente(joaquim)
     cadastrandoCliente(maria)
     maria.deposito(100)
